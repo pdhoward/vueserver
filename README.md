@@ -1,4 +1,4 @@
-# Vue Socket - Dynamic Content Distribution
+# Vue Server - Dynamic Content Distribution
 
 ## Build Setup
 
@@ -7,13 +7,8 @@
 npm install
 
 # Start the distribution server.
-node server/index.js
+node server
 
-# Serve the client application with hot reload.
-npm run serve
-
-# Build the client application for production with minification.
-npm run build
 ```
 
 ## About
