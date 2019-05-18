@@ -44,8 +44,12 @@ wss.on(`connection`, (ws) => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
   })
-  ws.send('ho!')
-  //setInterval(() => ws.send(ADD), 5000);
+  let helloworld = JSON.stringify({
+    type: `HELLO`,
+    entity: `WORLD`
+  })
+  ws.send(helloworld)
+  setInterval(() => ws.send(ADD), 5000);
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
 });
 
