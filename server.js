@@ -39,7 +39,7 @@ const UPDATE = JSON.stringify({
   type: `UPDATE`,
   entity: news1Update,
 });
-
+let xid = 4
 wss.on(`connection`, (ws) => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
@@ -49,7 +49,15 @@ wss.on(`connection`, (ws) => {
     entity: `WORLD`
   })
   ws.send(helloworld)
-  setInterval(() => ws.send(ADD), 5000);
+  setInterval(() => { 
+    xid = xid + 1
+    news3add.data.id = xid
+    const ADD = JSON.stringify({
+      type: `ADD`,
+      entity: news3add,
+    });
+    ws.send(ADD)
+  }, 5000);
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
 });
 
