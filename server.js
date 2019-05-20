@@ -31,6 +31,13 @@ const wss = new webSocket.Server({
   server,
 });
 
+wss.getUniqueID = function () {
+  function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+  return s4() + s4() + '-' + s4();
+};
+
 const ADD = JSON.stringify({
   type: `ADD`,
   entity: news3add,
@@ -43,10 +50,14 @@ const UPDATE = JSON.stringify({
 let xid = 4
 
 wss.on(`connection`, (ws) => {
+  // assign a unique id to each client connecting
+  ws.id = wss.getUniqueID();
+
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
   })
-  const pulse = setInterval(() => {
+
+  setInterval(function() {
     xid = xid + 1
     news3add.data.id = xid
     const ADD = JSON.stringify({
@@ -54,18 +65,15 @@ wss.on(`connection`, (ws) => {
       entity: news3add,
     })
 
-    wss.clients.forEach(function each(ws) {
+    wss.clients.forEach(function(ws) {
       if (ws.readyState === ws.OPEN) {
-        console.log(`Client is Open based on ${ws.readyState} `)
-        ws.send(ADD)
-      } else {
-        console.log(`Client is Closed based on ${ws.readyState}`)
+        console.log(`A message was sent Client ${ws.id} `)
+        ws.send(ADD)      
       }
     })
 
-    }, 20000)
-
-  })
+  }, 10000)
+})
 
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
 
