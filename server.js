@@ -39,27 +39,36 @@ const UPDATE = JSON.stringify({
   type: `UPDATE`,
   entity: news1Update,
 });
+
 let xid = 4
+
 wss.on(`connection`, (ws) => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
   })
-  let helloworld = JSON.stringify({
-    type: `HELLO`,
-    entity: `WORLD`
-  })
-  ws.send(helloworld)
-  setInterval(() => { 
+  const pulse = setInterval(() => {
     xid = xid + 1
     news3add.data.id = xid
     const ADD = JSON.stringify({
       type: `ADD`,
       entity: news3add,
-    });
-    ws.send(ADD)
-  }, 5000);
+    })
+
+    wss.clients.forEach(function each(ws) {
+      if (ws.readyState === ws.OPEN) {
+        console.log(`Client is Open based on ${ws.readyState} `)
+        ws.send(ADD)
+      } else {
+        console.log(`Client is Closed based on ${ws.readyState}`)
+      }
+    })
+
+    }, 5000)
+
+  })
+
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
-});
+
 
 server.listen(PORT);
 // eslint-disable-next-line no-console
