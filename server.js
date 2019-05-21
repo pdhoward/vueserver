@@ -6,7 +6,7 @@ const news =          require(`./data/news.json`);
 const news1Update =   require(`./data/news-1-update.json`);
 const news3add =      require(`./data/news-3-add.json`);
 
-const PORT = 8200;
+const PORT = 3100;
 
 const app = express();
 
