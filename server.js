@@ -2,13 +2,49 @@ const express =       require(`express`);
 const path =          require(`path`);
 const webSocket =     require(`ws`);
 const http =          require(`http`);
-const news =          require(`./data/news.json`);
-const news1Update =   require(`./data/news-1-update.json`);
-const news3add =      require(`./data/news-3-add.json`);
+const message =       require(`./models/message`)
+const news =          require(`./db/data/news.json`);
+const news1Update =   require(`./db/data/news-1-update.json`);
+const news3add =      require(`./db/data/news-3-add.json`);
 
 const PORT = 3100;
 
 const app = express();
+
+const exp1 = {
+  'color': 'red',
+  'border': 'bold'
+}
+const chn1 = [
+  { 'channel': 'network1'},
+  { 'channel': 'network2'},
+  { 'channel': 'network3'}
+]
+
+const server = http.createServer(app);
+
+const wss = new webSocket.Server({
+  path: `/ws`,
+  server,
+});
+
+
+const ADD = JSON.stringify({
+  type: `ADD`,
+  entity: news3add,
+});
+const UPDATE = JSON.stringify({
+  type: `UPDATE`,
+  entity: news1Update,
+});
+
+
+wss.getUniqueID = function () {
+  function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+  return s4() + s4() + '-' + s4();
+};
 
 app.use((req, res, next) => {
   res.header(`Access-Control-Allow-Origin`, `*`);
@@ -21,30 +57,19 @@ app.use(express.static(path.resolve(__dirname, `components`), {
 }));
 
 app.get(`/news`, (req, res) => {
+  console.log(`BUILDING NEXT STAGE`)
+  console.log(message.obj) 
+  let contentObj = news.map((n) => {
+    message.obj.Content.push(n.data)
+    message.obj.OwnerId = wss.getUniqueID()
+    message.obj.TemplateId = wss.getUniqueID()
+    message.obj.Experiences.push(exp1)
+    message.obj.Channels = [...chn1]
+    return message.obj
+  })
+  console.log(contentObj)
+
   res.send(news);
-});
-
-const server = http.createServer(app);
-
-const wss = new webSocket.Server({
-  path: `/ws`,
-  server,
-});
-
-wss.getUniqueID = function () {
-  function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  }
-  return s4() + s4() + '-' + s4();
-};
-
-const ADD = JSON.stringify({
-  type: `ADD`,
-  entity: news3add,
-});
-const UPDATE = JSON.stringify({
-  type: `UPDATE`,
-  entity: news1Update,
 });
 
 let xid = 4
@@ -56,7 +81,7 @@ wss.on(`connection`, (ws) => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
   })
-
+  /*
   setInterval(function() {
     xid = xid + 1
     news3add.data.id = xid
@@ -73,6 +98,7 @@ wss.on(`connection`, (ws) => {
     })
 
   }, 10000)
+  */
 })
 
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
