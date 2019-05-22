@@ -33,3 +33,4 @@ node_modules
 *.map
 *.min.js
 !public/components/**/*.min.js
+.env
