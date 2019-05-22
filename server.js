@@ -11,10 +11,10 @@ const PORT = 3100;
 
 const app = express();
 
-const exp1 = {
+const exp1 = [{
   'color': 'red',
   'border': 'bold'
-}
+}]
 const chn1 = [
   { 'channel': 'network1'},
   { 'channel': 'network2'},
@@ -58,16 +58,21 @@ app.use(express.static(path.resolve(__dirname, `components`), {
 
 app.get(`/news`, (req, res) => {
   console.log(`BUILDING NEXT STAGE`)
-  console.log(message.obj) 
-  let contentObj = news.map((n) => {
-    message.obj.Content.push(n.data)
-    message.obj.OwnerId = wss.getUniqueID()
-    message.obj.TemplateId = wss.getUniqueID()
-    message.obj.Experiences.push(exp1)
-    message.obj.Channels = [...chn1]
-    return message.obj
+  //console.log(message.obj) 
+  let x = 0 
+  let messageArray = []
+  news.forEach((n) => {
+    x = x + 1   
+    let messageObj = Object.assign({}, message.obj) 
+    messageObj.Content = []    
+    messageObj.Content.push(n.data)    
+    messageObj.OwnerId = wss.getUniqueID()
+    messageObj.TemplateId = wss.getUniqueID()
+    messageObj.Experiences = [...exp1]
+    messageObj.Channels = [...chn1]
+    messageArray.push(messageObj)
   })
-  console.log(contentObj)
+  console.log(JSON.stringify(messageArray, null, 2))
 
   res.send(news);
 });
