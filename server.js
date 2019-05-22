@@ -74,7 +74,7 @@ app.get(`/news`, (req, res) => {
   })
   console.log(JSON.stringify(messageArray, null, 2))
 
-  res.send(news);
+  res.send(messageArray);
 });
 
 let xid = 4
