@@ -12,7 +12,7 @@ const PORT = 3100;
 const app = express();
 
 const exp1 = [{
-  'theme': 'warning'  
+  'theme': 'danger'  
 }]
 const chn1 = [
   { 'channel': 'network1'},
@@ -55,9 +55,7 @@ app.use(express.static(path.resolve(__dirname, `components`), {
   maxAge: `365d`,
 }));
 
-app.get(`/news`, (req, res) => {
-  console.log(`BUILDING NEXT STAGE`)
-  //console.log(message.obj) 
+app.get(`/news`, (req, res) => { 
   let x = 0 
   let messageArray = []
   news.forEach((n) => {
@@ -71,8 +69,6 @@ app.get(`/news`, (req, res) => {
     messageObj.Channels = [...chn1]
     messageArray.push(messageObj)
   })
-  console.log(JSON.stringify(messageArray, null, 2))
-
   res.send(messageArray);
 });
 
