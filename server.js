@@ -12,8 +12,7 @@ const PORT = 3100;
 const app = express();
 
 const exp1 = [{
-  'color': 'red',
-  'border': 'bold'
+  'theme': 'warning'  
 }]
 const chn1 = [
   { 'channel': 'network1'},
