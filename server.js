@@ -11,6 +11,7 @@ const PORT = 3100;
 
 const app = express();
 
+const expArr = ['info', 'danger', 'primary', 'success', 'warning' ]
 const exp1 = [{
   'theme': 'info'  
 }]
@@ -59,7 +60,9 @@ app.get(`/news`, (req, res) => {
   let x = 0 
   let messageArray = []
   news.forEach((n) => {
-    x = x + 1   
+    x = x + 1
+    var exp = expArr[Math.floor(Math.random()*expArr.length)];
+    exp1[0].theme = exp
     let messageObj = Object.assign({}, message.obj) 
     messageObj.Content = []    
     messageObj.Content.push(n.data)    
