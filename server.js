@@ -4,8 +4,8 @@ const webSocket =     require(`ws`);
 const http =          require(`http`);
 const message =       require(`./models/message`)
 const news =          require(`./db/data/news.json`);
-const news1Update =   require(`./db/data/news-1-update.json`);
-const news3add =      require(`./db/data/news-3-add.json`);
+const newsupdate =   require(`./db/data/news-1-update.json`);
+const newsadd =      require(`./db/data/news-3-add.json`);
 
 const PORT = 3100;
 
@@ -31,11 +31,11 @@ const wss = new webSocket.Server({
 
 const ADD = JSON.stringify({
   type: `ADD`,
-  entity: news3add,
+  entity: newsadd,
 });
 const UPDATE = JSON.stringify({
   type: `UPDATE`,
-  entity: news1Update,
+  entity: newsupdate,
 });
 
 
@@ -84,13 +84,26 @@ wss.on(`connection`, (ws) => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
   })
-  /*
+  // send updates for news3add
   setInterval(function() {
-    xid = xid + 1
+    xid = xid + 1     
+    let messageArray = []
     news3add.data.id = xid
+    
+    var exp = expArr[Math.floor(Math.random()*expArr.length)];
+    exp1[0].theme = exp
+    let messageObj = Object.assign({}, message.obj) 
+    messageObj.Content = []    
+    messageObj.Content.push(news3add)    
+    messageObj.OwnerId = wss.getUniqueID()
+    messageObj.TemplateId = wss.getUniqueID()
+    messageObj.Experiences = [...exp1]
+    messageObj.Channels = [...chn1]
+    messageArray.push(messageObj)
+     
     const ADD = JSON.stringify({
       type: `ADD`,
-      entity: news3add,
+      entity: messageArray,
     })
 
     wss.clients.forEach(function(ws) {
@@ -101,7 +114,7 @@ wss.on(`connection`, (ws) => {
     })
 
   }, 10000)
-  */
+
 })
 
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
