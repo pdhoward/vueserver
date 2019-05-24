@@ -28,7 +28,6 @@ const wss = new webSocket.Server({
   server,
 });
 
-
 const ADD = JSON.stringify({
   type: `ADD`,
   entity: newsadd,
@@ -37,7 +36,6 @@ const UPDATE = JSON.stringify({
   type: `UPDATE`,
   entity: newsupdate,
 });
-
 
 wss.getUniqueID = function () {
   function s4() {
@@ -63,7 +61,8 @@ app.get(`/news`, (req, res) => {
     x = x + 1
     var exp = expArr[Math.floor(Math.random()*expArr.length)];
     exp1[0].theme = exp
-    let messageObj = Object.assign({}, message.obj) 
+    let messageObj = Object.assign({}, message.obj)
+    messageObj.MsgId = x 
     messageObj.Content = []    
     messageObj.Content.push(n.data)    
     messageObj.OwnerId = wss.getUniqueID()
@@ -87,14 +86,14 @@ wss.on(`connection`, (ws) => {
   // send updates for news3add
   setInterval(function() {
     xid = xid + 1     
-    let messageArray = []
-    news3add.data.id = xid
+    let messageArray = []  
     
     var exp = expArr[Math.floor(Math.random()*expArr.length)];
     exp1[0].theme = exp
     let messageObj = Object.assign({}, message.obj) 
+    messageObj.MsgId = xid 
     messageObj.Content = []    
-    messageObj.Content.push(news3add)    
+    messageObj.Content.push(newsadd)    
     messageObj.OwnerId = wss.getUniqueID()
     messageObj.TemplateId = wss.getUniqueID()
     messageObj.Experiences = [...exp1]
