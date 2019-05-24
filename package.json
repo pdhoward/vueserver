@@ -8,6 +8,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
+    "lorem-ipsum": "^2.0.2",
+    "moment": "^2.24.0",
     "ws": "^6.2.1"
   },
   "devDependencies": {}

@@ -2,7 +2,8 @@
 //default identifier for Machine platform
 const platform = "+19148195104"
 
-exports.obj = {  
+exports.obj = {
+  MsgId: '',
   OwnerId: "",
   PlatformId: platform,
   TemplateId: "",
