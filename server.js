@@ -95,10 +95,28 @@ app.get(`/news`, (req, res) => {
 });
 
 let xid = 4
-
-wss.on(`connection`, (ws) => {
+let connections = {}
+let connectionCounter = 0
+wss.on(`connection`, (ws, req) => {
   // assign a unique id to each client connecting
+  connectionCounter++
+  console.log((new Date()) + ' Recieved a new connection from origin ' + req.origin + '.');
+  console.log(`Detected Connection #${connectionCounter}`)
   ws.id = wss.getUniqueID();
+  let url = ""
+
+  try{
+    url = new URL(req.url)
+  }
+  catch(error){    
+    console.log(error.message)    
+  }
+  
+  //url = url.substring(1)
+  //let room = 1
+  ws['room'] = url
+
+  connections[ws.id] = ws
 
   // NOTE only sending obj.data in message
   ws.on('message', message => {
@@ -133,16 +151,22 @@ wss.on(`connection`, (ws) => {
       entity: messageArray,
     })
 
-    wss.clients.forEach(function(ws) {
-      if (ws.readyState === ws.OPEN) {
-        console.log(`A message was sent Client ${ws.id} `)
-        ws.send(ADD)      
+    let keys = Object.keys(connections)
+    //console.log(connections)
+    console.log(keys)
+
+    keys.forEach(function(key) {
+      if (connections[key].readyState === ws.OPEN) {
+        console.log(`A message was sent to Client ${key} `)
+        connections[key].send(ADD)
       }
     })
 
   }, 10000)
 
 })
+
+
 
   //setTimeout(() => setInterval(() => ws.send(UPDATE), 5000), 2500);
 
