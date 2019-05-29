@@ -1,6 +1,6 @@
 const express =       require(`express`);
 const path =          require(`path`);
-const webSocket =     require(`ws`);
+const cors =          require('cors')
 const http =          require(`http`);
 const moment =        require(`moment`)
 const message =       require(`./models/message`)
@@ -13,6 +13,28 @@ const {LoremIpsum} =  require('lorem-ipsum')
 const PORT = 3100;
 
 const app = express();
+
+app.use(cors())
+
+
+//////////////////////////////////////////////////////////////////////////
+////////////  Event Registration for server, streams and db      ////////
+////////////////////////////////////////////////////////////////////////
+
+const server = require('../events').events(app)
+
+//  experiment with publish function - send msg to client
+let argv = "yes"    
+if (process.argv[2]) argv = process.argv[2]  
+if (argv != 'no') {
+  let sendMessage = require('../events/redis').publish
+  sendMessage('monitor', JSON.stringify({'Body':'Machine is connected to Redis'}))
+}
+
+
+ //////////////////////////////////////////////////////
+ ////////// Register and Config Routes ///////////////
+ ////////////////////////////////////////////////////
 
 const expArr = ['info', 'danger', 'primary', 'success', 'warning' ]
 const exp1 = [{
