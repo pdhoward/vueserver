@@ -21,13 +21,13 @@ app.use(cors())
 ////////////  Event Registration for server, streams and db      ////////
 ////////////////////////////////////////////////////////////////////////
 
-const server = require('../events').events(app)
+const server = require('./events').events(app)
 
 //  experiment with publish function - send msg to client
 let argv = "yes"    
 if (process.argv[2]) argv = process.argv[2]  
 if (argv != 'no') {
-  let sendMessage = require('../events/redis').publish
+  let sendMessage = require('./events/redis').publish
   sendMessage('monitor', JSON.stringify({'Body':'Machine is connected to Redis'}))
 }
 
@@ -46,12 +46,6 @@ const chn1 = [
   { 'channel': 'network3'}
 ]
 
-const server = http.createServer(app);
-
-const wss = new webSocket.Server({
-  path: `/ws`,
-  server,
-});
 
 const ADD = JSON.stringify({
   type: `ADD`,
