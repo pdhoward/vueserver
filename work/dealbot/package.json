@@ -1,0 +1,32 @@
+{
+  "name": "deal-bot",
+  "version": "1.0.0",
+  "description": "This is a bot which tracks prices of items on e-commerce sites and notifies users when there is a price drop on the watched items. It also provides analytics on item prices over long periods of time.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.20",
+    "monk": "^6.0.6",
+    "node-schedule": "^1.3.2",
+    "nodemailer": "^5.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "puppeteer": "^1.13.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}

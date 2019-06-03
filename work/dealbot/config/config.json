@@ -1,0 +1,21 @@
+{
+    "production": {
+        "MONGODB_URL": "mongodb://test123:test123@ds121636.mlab.com:21636/deal-bot",
+        "SESSION_SECRET": "passport-tutorial",
+        "JWT_SECRET": "jwt-secret",
+        "EMAIL": {
+            "UNAME": "xxx@gmail.com",
+            "PASS": "xxx"
+        }
+    },
+    "development": {
+        "PORT": 3000,
+        "MONGODB_URL": "mongodb://localhost:27017/dealbot",
+        "SESSION_SECRET": "passport-tutorial",
+        "JWT_SECRET": "jwt-secret",
+        "EMAIL": {
+            "UNAME": "xxx@gmail.com",
+            "PASS": "xxx"
+        }
+    }
+}
