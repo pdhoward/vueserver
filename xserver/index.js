@@ -3,11 +3,11 @@ const path =          require(`path`);
 const cors =          require('cors')
 const http =          require(`http`);
 const moment =        require(`moment`)
-const message =       require(`./models/message`)
-const news =          require(`./db/data/news.json`);
-const newsupdate =    require(`./db/data/news-1-update.json`);
-const newsadd =       require(`./db/data/news-3-add.json`);
-const imageDB =       require('./db/data/images.json')
+const message =       require(`../models/message`)
+const news =          require(`../db/data/news.json`);
+const newsupdate =    require(`../db/data/news-1-update.json`);
+const newsadd =       require(`../db/data/news-3-add.json`);
+const imageDB =       require('../db/data/images.json')
 const {LoremIpsum} =  require('lorem-ipsum')
 
 const PORT = 3100;
@@ -21,7 +21,7 @@ app.use(cors())
 ////////////  Event Registration for server, streams and db      ////////
 ////////////////////////////////////////////////////////////////////////
 
-const server = require('./events').events(app)
+const server = require('../events').events(app)
 
 //  experiment with publish function - send msg to client
 let argv = "yes"    
