@@ -1,7 +1,7 @@
 const moment =        require(`moment`)
-const message =       require(`../models/message`)
-const newsemit =       require(`../db/data/newsemit.json`);
-const imageDB =       require('../db/data/images.json')
+const message =       require(`../../models/message`)
+const newsemit =       require(`../../db/data/newsemit.json`);
+const imageDB =       require('../../db/data/images.json')
 const {LoremIpsum} =  require('lorem-ipsum')
 
 const expArr = ['info', 'danger', 'primary', 'success', 'warning' ]
