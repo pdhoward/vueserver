@@ -1,0 +1,18 @@
+[
+	{
+		"intent": "wat",
+		"api": "https://09z0pibex6.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "clarify a message that had low confidence score from classifier",
+        "env": "test",
+		"_v": 0.5	
+	},
+	{
+        "intent": "__DEFAULT",
+        "api": "https://randomuser.me/api/?results=1",
+        "description": "Agent Not Available",
+        "env": "test",
+        "_v": 0.5
+    }
+	
+
+]

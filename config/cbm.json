@@ -1,0 +1,60 @@
+[
+	{
+		"intent": "banter",
+		"api": "https://46ezjoraag.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "simple greetings and chat",
+        "env": "test",
+		"_v": 0.5	
+	},
+	{
+        "intent": "buy",
+        "api": "https://bs91fdxng3.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "purchase the product",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "search",
+        "api": "https://p8v54w1pok.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "search for product",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "return",
+        "api": "https://5kqx5pp6a4.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "return a product",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "location",
+        "api": "https://jy7uxy8qdf.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "location of business",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "goodbye",
+        "api": "https://x37mnlf7vl.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "simple end to a conversation",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "nlp",
+        "method": "post",
+        "api": "https://3aj6iopk9b.execute-api.us-east-1.amazonaws.com/staging/",
+        "description": "determine intent",
+        "env": "test",
+        "_v": 0.5
+    },
+    {
+        "intent": "__DEFAULT",
+        "api": "https://randomuser.me/api/?results=1",
+        "description": "Agent Not Available",
+        "env": "test",
+        "_v": 0.5
+    }
+
+]

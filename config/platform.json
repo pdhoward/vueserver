@@ -1,0 +1,25 @@
+[
+	{
+		"name": "xio",
+		"description": "Platform owner - test database holding client collections ",
+		"location": "urbancoder account",
+		"db": "platform",
+		"uri": "mongodb://localhost:27017/",
+		"username": "machine",
+		"password": "machin3",
+		"webpassword": "demo",
+		"env": "test"
+	},
+	{
+		"name": "xio",
+		"description": "Platform owner - production db holding client collections",
+		"location": "urbancoder account",
+		"db": "platform",
+		"uri": "mongodb://machine:machin3@ds247674.mlab.com:47674/",
+		"username": "machine",
+		"password": "machin3",
+		"webpassword": "demo",
+		"env": "production"
+	}
+
+]

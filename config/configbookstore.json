@@ -1,0 +1,41 @@
+[{
+    "id": "b6ccd640-7632-11e8-9ad0-d538d2665285",
+    "mlab": {
+        "description": "db uri endpoint with registered members",
+        "uri": "mongodb://machina:Awes0me@ds025802.mlab.com:25802/",
+        "username": "machina",
+        "password": "Aws0me"        
+    },
+    "twilio": {
+        "description": "twilio token used in SDK to respond to network visitors",
+        "sid": "ACe2f5abf6cf7c589a662a8e38097bbac1",
+        "token": "09d6cb826012afbe4f0bca7ad3dfe33d",
+        "API_Secret": "",
+        "username": "",
+        "chaotic": ""
+    },
+    "redis": {
+        "description": "network redis account for analytics",
+        "host": "",
+        "port": 15416,
+        "password": ""
+    },
+    "watsonclassifier": {
+        "description": "NLP Classifier v14",
+        "url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
+        "username": "947a6405-d061-43d7-a696-51daa119c32e",
+        "password": "n70l6K7n2Tnt",
+        "classifier1": "e997b3x362-nlc-1018"
+    },
+    "runparms": {
+        "description": "customization options for this network",
+        "confidenceLevel": 60,
+        "expirationInterval": 2000,
+        "agentCallbackThreshold": 25,
+        "machineIterationThrehold": 30
+    },
+    "postdate": {
+        "$date": "2018-06-22T15:41:25.716Z"
+    },
+    "__v": 0
+}]

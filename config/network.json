@@ -1,0 +1,87 @@
+[
+	{
+		"name": "bookstore",
+		"description": "test network",
+		"location": "strategicmachines account",
+		"db": "bookstore",
+		"uri": "mongodb://localhost:27017/",
+		"username": "machine",
+		"password": "machin3",
+        "webpassword": "demo",
+        "context": "bookstore",
+        "webid": "bookstore",
+        "smsid": "+17042289191",
+		"env": "test"
+	},
+	{
+		"name": "bookstore",
+		"description": "production owner",
+		"location": "strategicmachines account",
+		"db": "bookstore",
+		"uri": "mongodb://machine:machin3@ds247674.mlab.com:47674/",
+		"username": "machine",
+		"password": "machin3",
+        "webpassword": "demo",
+        "context": "bookstore",
+        "webid": "bookstore",
+        "smsid": "+17042289191",
+		"env": "production"
+    },
+    {
+        "name": "pizzastore",
+        "description": "test network",
+        "location": "strategicmachines account",
+        "db": "pizzastore",
+        "uri": "mongodb://localhost:27017/",
+        "username": "machine",
+        "password": "machin3",
+        "webpassword": "demo",
+        "context": "pizzastore",
+        "webid": "pizzastore",
+        "smsid": "+19148195104",
+        "env": "test"
+    },
+    {
+        "name": "pizzastore",
+        "description": "production network",
+        "location": "strategicmachines account",
+        "db": "pizzastore",
+        "uri": "mongodb://machine:machin3@ds147684.mlab.com:47684/",
+        "username": "machine",
+        "password": "machin3",
+        "webpassword": "demo",
+        "context": "pizzastore",
+        "webid": "pizzastore",
+        "smsid": "+19148195104",
+        "env": "production"
+    },
+    {
+        "name": "votingbooth",
+        "description": "test network",
+        "location": "strategicmachines account",
+        "db": "votingbooth",
+        "uri": "mongodb://localhost:27017/",
+        "username": "machine",
+        "password": "machin3",
+        "webpassword": "demo",
+        "context": "vote",
+        "webid": "vote",
+        "smsid": "+19802294921",
+        "env": "test"
+    },
+    {
+        "name": "votingbooth",
+        "description": "production network",
+        "location": "strategicmachines account",
+        "db": "votingbooth",
+        "uri": "mongodb://machine:machin3@ds247674.mlab.com:47674/",
+        "username": "machine",
+        "password": "machin3",
+        "webpassword": "demo",
+        "context": "vote",
+        "webid": "vote",
+        "smsid": "+19802294921",
+        "env": "production"
+    }
+
+]

@@ -27,7 +27,7 @@ const server = require('../events').events(app)
 let argv = "yes"    
 if (process.argv[2]) argv = process.argv[2]  
 if (argv != 'no') {
-  let sendMessage = require('./events/redis').publish
+  let sendMessage = require('../events/redis').publish
   sendMessage('monitor', JSON.stringify({'Body':'Machine is connected to Redis'}))
 }
 
