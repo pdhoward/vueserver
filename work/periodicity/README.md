@@ -3,11 +3,7 @@
 Periodicity is a dynamic, data-driven Periodic Table built with Vue.js that uses D3 animations and graphs to demonstrate the beauty of periodic trends.
 
 # Periodic Table
-[![Periodicity](./screenshots/periodicity2.png 'Periodicity')](https://periodicity.io)
-# Trends Mode
-[![Periodicity](./screenshots/trendgif2.gif 'Periodicity')](https://periodicity.io)
-# Details
-[![Periodicity](./screenshots/details.png 'Periodicity')](https://periodicity.io)
+https://periodicity.io/
 
 ## Build Setup
 
