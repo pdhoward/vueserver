@@ -4,6 +4,7 @@
 /////         socket connection - embed redis pub  /////
 ////////////////////////////////////////////////////////
 
+const testemit =       require('./testemit')
 const msg =            require('../../models/message')
 //const sendMessage =       require('../events').publish
 
@@ -132,6 +133,12 @@ module.exports = function (client, clientManager, chatroomManager) {
     return callback(null, clientManager.getAvailableUsers())
   }
 
+  // emits test messages based on interval setting
+  function handleTestEmit() {
+    let time = 10000
+    testemit(client, time)
+  }
+
   function handleDisconnect() {
     // remove user profile
     clientManager.removeClient(client)
@@ -146,6 +153,7 @@ module.exports = function (client, clientManager, chatroomManager) {
     handleMessage,
     handleGetChatrooms,
     handleGetAvailableUsers,
-    handleDisconnect
+    handleDisconnect,
+    handleTestEmit
   }
 }

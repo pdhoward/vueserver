@@ -23,12 +23,16 @@ const socketevents = (io) => {
             handleMessage,
             handleGetChatrooms,
             handleGetAvailableUsers,
-            handleDisconnect
+            handleDisconnect,
+            handleTestEmit
         } = makeHandlers(client, clientManager, chatroomManager)
 
         exports.handleGetAvailableUsers
 
-        console.log('client connected...', client.id)        
+        console.log('client connected...', client.id) 
+        
+        // begin emitting a stream of test data to each client
+        handleTestEmit()
         
         clientManager.addClient(client)
 
