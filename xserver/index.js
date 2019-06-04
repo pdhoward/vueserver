@@ -87,31 +87,7 @@ app.use(express.static(path.resolve(__dirname, `components`), {
   maxAge: `365d`,
 }));
 // NOTE only sending obj.data in message
-app.get(`/news`, (req, res) => { 
-  let x = 0 
-  let messageArray = []
-  news.forEach((n) => {
-    x = x + 1
-    // insert some random context
-    n.data.date = moment().format('MMMM Do YYYY, h:mm:ss a');
-    let imageObj = imageDB[Math.floor(Math.random()*imageDB.length)]
-    n.data.url = imageObj.photo
-    var exp = expArr[Math.floor(Math.random()*expArr.length)];
-    n.data.content = lorem.generateSentences(5)
-    n.data.headline = lorem.generateWords(5)
-    exp1[0].theme = exp
-    let messageObj = Object.assign({}, message.obj)
-    messageObj.MsgId = x 
-    messageObj.Content = []    
-    messageObj.Content.push(n.data)    
-    messageObj.OwnerId = wss.getUniqueID()
-    messageObj.TemplateId = wss.getUniqueID()
-    messageObj.Experiences = [...exp1]
-    messageObj.Channels = [...chn1]
-    messageArray.push(messageObj)
-  })
-  res.send(messageArray);
-});
+app.get(`/news`, news)
 
 let xid = 4
 let connections = {}
