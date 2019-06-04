@@ -1,7 +1,7 @@
 
 require('dotenv').config()
 const {socketevents} =          require('./sockets')
-//const {dbevents} =              require('./db')
+const {dbevents} =              require('./db')
 const { g, b, gr, r, y } =      require('../console');
 
 ////////////////////////////////////////////////////////////////
@@ -9,10 +9,8 @@ const { g, b, gr, r, y } =      require('../console');
 //////////////////////////////////////////////////////////////
 
 const register = (io) => {    
-  socketevents(io)
-  
-  //dbevents()
-
+  socketevents(io)  
+  dbevents()
   // submit a no argument from cli to skip registering redis if poor internet service
   let argv = "yes"    
   if (process.argv[2]) argv = process.argv[2]  
@@ -27,7 +25,7 @@ const events = (app) => {
   let server = require('http').Server(app);
   let io = require('socket.io')(server)
   register(io)  
-  return server
+  return {server, io}
 }
 
 module.exports = {

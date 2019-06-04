@@ -7,18 +7,14 @@ const { g, b, gr, r, y } =        require('../console');
 const clientManager = ClientManager()
 const chatroomManager = ChatroomManager()
 
-/*
-note 'state' is an experiment to export a set of functions for handling Map()
-console.log(r(`inside of events and checking out the value of state`))
-console.log(state)
-*/
 /////////////////////////////////////////////////////
 /////////////////////socket events //////////////////
 ////////////////////////////////////////////////////
 
 // https://socket.io/docs/emit-cheatsheet/
 
-const socketevents = (io) => {
+const socketevents = (io) => {  
+
     io.on('connection', function (client) {
         const {
             handleRegister,

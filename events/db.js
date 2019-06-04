@@ -8,7 +8,7 @@ const { g, b, gr, r, y } =      require('../console');
 /////////////////////database events ////////////////
 //////////////////////////////////////////////////// 
 
-//const collection = db.collection(process.env.MONGO_TEST_COLLECTION);
+const collection = db.collection(process.env.ATLAS_URI);
 
 exports.dbevents = () => {
 

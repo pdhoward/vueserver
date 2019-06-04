@@ -21,7 +21,7 @@ app.use(cors())
 ////////////  Event Registration for server, streams and db      ////////
 ////////////////////////////////////////////////////////////////////////
 
-const server = require('../events').events(app)
+const {server, io} = require('../events').events(app)
 
 //  experiment with publish function - send msg to client
 let argv = "yes"    
@@ -30,11 +30,14 @@ if (argv != 'no') {
   let sendMessage = require('../events/redis').publish
   sendMessage('monitor', JSON.stringify({'Body':'Machine is connected to Redis'}))
 }
-
-
  //////////////////////////////////////////////////////
  ////////// Register and Config Routes ///////////////
  ////////////////////////////////////////////////////
+
+const news =              express.Router()
+
+require('../routes/news')(news)
+
 
 const expArr = ['info', 'danger', 'primary', 'success', 'warning' ]
 const exp1 = [{
