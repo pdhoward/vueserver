@@ -36,6 +36,11 @@ const socketevents = (io) => {
         
         clientManager.addClient(client)
 
+        client.on('test', (data) => {
+            console.log(`Detected a message from ${client.id} `)
+            console.log(data)
+        })
+
         client.on('register', handleRegister)
 
         client.on('join', handleJoin)

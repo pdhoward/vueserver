@@ -27,8 +27,7 @@ wordsPerSentence: {
   
 let xid = 4
 module.exports = (client, time) => {
-  // assign a unique id to each client connecting
-  connectionCounter++
+  // assign a unique id to each client connecting  
   console.log((new Date()))
   console.log(`Detected New Connection: ${client.id}`)  
 
@@ -40,7 +39,7 @@ module.exports = (client, time) => {
     // insert some random context
     newsemit.data.date = moment().format('MMMM Do YYYY, h:mm:ss a');
     let imageObj = imageDB[Math.floor(Math.random()*imageDB.length)]
-    newsadd.data.url = imageObj.photo
+    newsemit.data.url = imageObj.photo
     let exp = expArr[Math.floor(Math.random()*expArr.length)];
     newsemit.data.content = lorem.generateSentences(5)
     newsemit.data.headline = lorem.generateWords(5)    

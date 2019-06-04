@@ -51,7 +51,7 @@ const news = (router) => {
       exp1[0].theme = exp
       let messageObj = Object.assign({}, message.obj)
       messageObj.MsgId = x 
-      messageObj.Content = []    
+      messageObj.Content = []
       messageObj.Content.push(n.data)    
       messageObj.OwnerId = uuidv4()
       messageObj.TemplateId = uuidv4()
