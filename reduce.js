@@ -33,3 +33,39 @@ const maxReading = readings.reduce((x, y) => Math.max(x, y), Number.MIN_VALUE);
 const minReading = readings.reduce((x, y) => Math.min(x, y), Number.MAX_VALUE);
 console.log({minReading, maxReading});
 // ⦘ {minReading: 0.2, maxReading: 5.5}
+
+// flatmap
+const fileLines = [
+    'Inspector Algar,Inspector Bardle,Mr. Barker,Inspector Barton',
+    'Inspector Baynes,Inspector Bradstreet,Inspector Sam Brown',
+    'Monsieur Dubugue,Birdy Edwards,Inspector Forbes,Inspector Forrester',
+    'Inspector Gregory,Inspector Tobias Gregson,Inspector Hill',
+    'Inspector Stanley Hopkins,Inspector Athelney Jones'
+];
+
+function flatMap(f, arr) {
+    const reducer = (acc, item) => acc.concat(f(item));
+    return arr.reduce(reducer, []);
+}
+
+const investigators = flatMap(x => x.split(','), fileLines);
+console.log(investigators);
+
+[
+    //   "Inspector Algar",
+    //   "Inspector Bardle",
+    //   "Mr. Barker",
+    //   "Inspector Barton",
+    //   "Inspector Baynes",
+    //   "Inspector Bradstreet",
+    //   "Inspector Sam Brown",
+    //   "Monsieur Dubugue",
+    //   "Birdy Edwards",
+    //   "Inspector Forbes",
+    //   "Inspector Forrester",
+    //   "Inspector Gregory",
+    //   "Inspector Tobias Gregson",
+    //   "Inspector Hill",
+    //   "Inspector Stanley Hopkins",
+    //   "Inspector Athelney Jones"
+    // ]
