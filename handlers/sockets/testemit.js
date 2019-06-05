@@ -48,7 +48,7 @@ module.exports = (client, time) => {
     let messageObj = Object.assign({}, message.obj) 
     messageObj.MsgId = xid 
     messageObj.Content = []
-    messageObj.Content.push(newsadd.data)    
+    messageObj.Content.push(newsemit.data)    
     messageObj.OwnerId = uuidv4()
     messageObj.TemplateId = uuidv4()
     messageObj.Experiences = [...exp1]
