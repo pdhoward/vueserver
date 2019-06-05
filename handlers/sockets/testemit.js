@@ -49,8 +49,8 @@ module.exports = (client, time) => {
     messageObj.MsgId = xid 
     messageObj.Content = []
     messageObj.Content.push(newsadd.data)    
-    messageObj.OwnerId = wss.getUniqueID()
-    messageObj.TemplateId = wss.getUniqueID()
+    messageObj.OwnerId = uuidv4()
+    messageObj.TemplateId = uuidv4()
     messageObj.Experiences = [...exp1]
     messageObj.Channels = [...chn1]
     messageArray.push(messageObj)
