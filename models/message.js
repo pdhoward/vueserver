@@ -10,8 +10,8 @@ exports.obj = {
   Experiences: [],
   Configs: [],
   Channels: [],
-  Content: [],   
-  ApiVersion: "v1",  
+  Content: [],  
+  ApiVersion: "v1",
   Ip: "127.0.0..0",    
   Token: undefined    
 }

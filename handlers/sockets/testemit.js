@@ -31,11 +31,12 @@ module.exports = (client, time) => {
   // assign a unique id to each client connecting  
   console.log((new Date()))
   console.log(`Detected New Connection: ${client.id}`)
-  console.log(`Interval set ${time}`) 
+  console.log(`Interval set to ${time}`) 
 
   // send updates for news3add
   setInterval(function() {
-    xid = xid + 1     
+    xid = xid + 1
+    console.log(`DEBUG SETINTERVAL ${xid}`)  
     let messageArray = []  
     newsemit.data.id = xid
     // insert some random context
