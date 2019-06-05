@@ -12,14 +12,16 @@ const {LoremIpsum} =  require('lorem-ipsum')
 
 const { g, b, gr, r, y } =  require('../console')
 
-
 const test = (router) => {  
   router.use(async(req, res, next) => {
 
-    console.log(g("----- Test Route------"))        
-    console.log(req.body)
+    console.log(g("----- Test Route------"))
+    console.log(req.body)     
+    let data = {}
+    data.success=true
 
-    res.status(200).send('Success')
+    res.send(data)
+    next()
 
   })  
 }
