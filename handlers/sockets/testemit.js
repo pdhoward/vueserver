@@ -1,6 +1,7 @@
 const moment =        require(`moment`)
+const uuidv4 =        require('uuid/v4');
 const message =       require(`../../models/message`)
-const newsemit =       require(`../../db/data/newsemit.json`);
+const newsemit =      require(`../../db/data/newsemit.json`);
 const imageDB =       require('../../db/data/images.json')
 const {LoremIpsum} =  require('lorem-ipsum')
 
