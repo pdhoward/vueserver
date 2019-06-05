@@ -30,7 +30,8 @@ let xid = 4
 module.exports = (client, time) => {
   // assign a unique id to each client connecting  
   console.log((new Date()))
-  console.log(`Detected New Connection: ${client.id}`)  
+  console.log(`Detected New Connection: ${client.id}`)
+  console.log(`Interval set ${time}`) 
 
   // send updates for news3add
   setInterval(function() {
