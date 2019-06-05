@@ -19,6 +19,8 @@ const test = (router) => {
     console.log(g("----- Test Route------"))        
     console.log(req.body)
 
+    res.status(200).send('Success')
+
   })  
 }
 module.exports = test

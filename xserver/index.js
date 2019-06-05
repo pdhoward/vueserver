@@ -4,7 +4,25 @@ const cors =          require('cors')
 
 const PORT = 3100;
 const app = express();
+
+
+//////////////////////////////////////////////////////////////////////////
+////////////////////  Register Middleware       /////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
+
+app.use((req, res, next) => {
+  res.header(`Access-Control-Allow-Origin`, `*`);
+  res.header(`Access-Control-Allow-Headers`, `Origin, X-Requested-With, Content-Type, Accept`);
+  next();
+});
+
+app.use(express.static(path.resolve(__dirname, `components`), {
+  maxAge: `365d`,
+}));
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -30,15 +48,6 @@ const test =              express.Router()
 require('../routes/news')(news)
 require('../routes/test')(test)
 
-app.use((req, res, next) => {
-  res.header(`Access-Control-Allow-Origin`, `*`);
-  res.header(`Access-Control-Allow-Headers`, `Origin, X-Requested-With, Content-Type, Accept`);
-  next();
-});
-
-app.use(express.static(path.resolve(__dirname, `components`), {
-  maxAge: `365d`,
-}));
 
 app.get(`/news`, news)
 app.post(`/test`, test)
