@@ -55,7 +55,7 @@ function makeHandleEvent(client, clientManager, chatroomManager) {
   return handleEvent
 }
 
-module.exports = function (client, clientManager, chatroomManager) {
+module.exports = function (client, clientManager, chatroomManager, io) {
   
   const handleEvent = makeHandleEvent(client, clientManager, chatroomManager)   
 
@@ -136,7 +136,7 @@ module.exports = function (client, clientManager, chatroomManager) {
   // emits test messages based on interval setting
   function handleTestEmit() {
     let time = 10000
-    testemit(client, time)
+    testemit(io, client, time)
   }
 
   function handleDisconnect() {

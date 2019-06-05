@@ -27,7 +27,7 @@ wordsPerSentence: {
 });
   
 let xid = 4
-module.exports = (client, time) => {
+module.exports = (io, client, time) => {
   // assign a unique id to each client connecting  
   console.log((new Date()))
   console.log(`Detected New Connection: ${client.id}`)
@@ -61,8 +61,8 @@ module.exports = (client, time) => {
       type: `ADD`,
       entity: messageArray,
     })
-   
-   client.emit('message', ADD)
+   io.sockets.emit('broadcast', ADD)
+   //client.emit('message', ADD)
 
   }, time)
 

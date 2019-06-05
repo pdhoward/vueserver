@@ -25,7 +25,7 @@ const socketevents = (io) => {
             handleGetAvailableUsers,
             handleDisconnect,
             handleTestEmit
-        } = makeHandlers(client, clientManager, chatroomManager)
+        } = makeHandlers(client, clientManager, chatroomManager, io)
 
         exports.handleGetAvailableUsers
 
