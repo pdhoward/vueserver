@@ -14,7 +14,7 @@ sentencesPerParagraph: { max: 8, min: 4 },
 wordsPerSentence: { max: 10, min: 4 } });
   
 let xid = 4
-module.exports = (io) => {
+module.exports = function(io){
   // assign a unique id to each client connecting  
   console.log((new Date()))    
   xid = xid + 1      

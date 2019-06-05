@@ -7,23 +7,34 @@ const testemit = require('../handlers/sockets/testemit')
 
 const { g, b, gr, r, y } =  require('../console')
 
+var testinterval = null
+
 const test = (router) => {  
   router.use(async(req, res, next) => { 
     
     console.log(g("----- Test Route------"))
     let time = 10000    
-    let testParms = req.body
+    let testParms = req.body    
 
-    console.log(req.body)
-    if (testParms.type == 'fast') time = 5000
-    if (testParms.type == 'medium') time = 10000
-    if (testParms.type == 'slow') time = 30000
+    console.log(req.body)      
+    
+    clearInterval(testinterval)      
+
+    switch(testParms.type) {
+      case 'slow':
+        time = 30000
+        break
+      case 'medium':
+        time = 10000
+        break
+      case 'fast':
+        time = 1000
+    }  
+
+    testinterval = setInterval(testemit, time, req.bag)   
 
     let sec = (time / 1000)
-    console.log(`Start Broadcasting every ${sec} seconds`)
-    let testInterval
-    clearInterval(testInterval)
-    testInterval = setInterval(testemit(req.bag), time )
+    console.log(`Start Broadcasting every ${sec} seconds`)    
 
     let data = {}
     data.success=true
