@@ -29,5 +29,5 @@ const events = (app) => {
 }
 
 module.exports = {
-  events    
+  events
 }

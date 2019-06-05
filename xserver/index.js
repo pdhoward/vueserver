@@ -48,7 +48,10 @@ const test =              express.Router()
 require('../routes/news')(news)
 require('../routes/test')(test)
 
-
+app.use(function(req, res, next){
+  req.bag = io
+  next()
+})
 app.get(`/news`, news)
 app.post(`/test`, test)
 

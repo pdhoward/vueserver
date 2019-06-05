@@ -3,20 +3,28 @@
 /////////////////////////////////////////////
 ///// sets interval for stream testing  ////
 ///////////////////////////////////////////
-const moment =        require(`moment`)
-const uuidv4 =        require('uuid/v4');
-const message =       require(`../models/message`)
-const staticnews =    require(`../db/data/news.json`);
-const imageDB =       require('../db/data/images.json')
-const {LoremIpsum} =  require('lorem-ipsum')
+const testemit = require('../handlers/sockets/testemit')
 
 const { g, b, gr, r, y } =  require('../console')
 
 const test = (router) => {  
-  router.use(async(req, res, next) => {
-
+  router.use(async(req, res, next) => { 
+    
     console.log(g("----- Test Route------"))
-    console.log(req.body)     
+    let time = 10000    
+    let testParms = req.body
+
+    console.log(req.body)
+    if (testParms.type == 'fast') time = 5000
+    if (testParms.type == 'medium') time = 10000
+    if (testParms.type == 'slow') time = 30000
+
+    let sec = (time / 1000)
+    console.log(`Start Broadcasting every ${sec} seconds`)
+    let testInterval
+    clearInterval(testInterval)
+    testInterval = setInterval(testemit(req.bag), time )
+
     let data = {}
     data.success=true
 

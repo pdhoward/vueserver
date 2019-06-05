@@ -133,10 +133,9 @@ module.exports = function (client, clientManager, chatroomManager, io) {
     return callback(null, clientManager.getAvailableUsers())
   }
 
-  // emits test messages based on interval setting
-  function handleTestEmit() {
-    let time = 10000
-    testemit(io, client, time)
+  // broadcast test message
+  function handleTestEmit() {    
+    testemit(io)
   }
 
   function handleDisconnect() {

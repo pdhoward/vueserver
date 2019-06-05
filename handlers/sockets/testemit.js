@@ -14,11 +14,9 @@ sentencesPerParagraph: { max: 8, min: 4 },
 wordsPerSentence: { max: 10, min: 4 } });
   
 let xid = 4
-module.exports = (io, client, time) => {
+module.exports = (io) => {
   // assign a unique id to each client connecting  
-  console.log((new Date()))
-  console.log(`Detected New Connection: ${client.id}`)
-  console.log(`Interval set to ${time}`) 
+  console.log((new Date()))    
   xid = xid + 1      
   let messageArray = []  
   newsemit.data.id = xid
@@ -39,11 +37,10 @@ module.exports = (io, client, time) => {
   messageObj.Experiences = [...exp1]
   messageObj.Channels = [...chn1]
   messageArray.push(messageObj)
-    
+  
   const ADD = JSON.stringify({
     type: `ADD`,
     entity: messageArray,
   })
-  io.sockets.emit('broadcast', ADD)
-  //client.emit('message', ADD)
+  io.sockets.emit('broadcast', ADD)  
 }
