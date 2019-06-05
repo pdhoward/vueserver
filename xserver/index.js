@@ -25,8 +25,10 @@ if (argv != 'no') {
  ////////////////////////////////////////////////////
 
 const news =              express.Router()
+const test =              express.Router()
 
 require('../routes/news')(news)
+require('../routes/test')(test)
 
 app.use((req, res, next) => {
   res.header(`Access-Control-Allow-Origin`, `*`);
@@ -37,8 +39,9 @@ app.use((req, res, next) => {
 app.use(express.static(path.resolve(__dirname, `components`), {
   maxAge: `365d`,
 }));
-// NOTE only sending obj.data in message
+
 app.get(`/news`, news)
+app.post(`/test`, test)
 
 server.listen(PORT);
 // eslint-disable-next-line no-console
