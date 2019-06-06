@@ -3,10 +3,10 @@
 /////////////////////////////////////////////
 /////       seed mongodb database       ////
 ///////////////////////////////////////////
-const seeds =         require('../../db/data/news.json')
-const Message =       require('../models/messagedb')
-const imageDB =       require('../db/data/images.json')
 const {LoremIpsum} =  require('lorem-ipsum')
+const Message =       require('../models/messagedb')
+const seeds =         require('../../db/data/news.json')
+const imageDB =       require('../../db/data/images.json')
 
 const { g, b, gr, r, y } =  require('../console')
 
