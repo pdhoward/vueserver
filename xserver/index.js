@@ -43,9 +43,11 @@ if (argv != 'no') {
  ////////////////////////////////////////////////////
 
 const news =              express.Router()
+const seed =              express.Router()
 const test =              express.Router()
 
 require('../routes/news')(news)
+require('../routes/seed')(seed)
 require('../routes/test')(test)
 
 app.use(function(req, res, next){
@@ -53,6 +55,7 @@ app.use(function(req, res, next){
   next()
 })
 app.get(`/news`, news)
+app.post(`/seed`, seed)
 app.post(`/test`, test)
 
 server.listen(PORT);
