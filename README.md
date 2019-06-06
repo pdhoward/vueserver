@@ -21,3 +21,6 @@ MIT
 
 ## test data
 // https://source.unsplash.com/random/800x600
+
+## refactor
+1. update db/index to toggle between dev, test and prod databases

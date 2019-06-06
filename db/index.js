@@ -12,7 +12,8 @@ let options = {
     useNewUrlParser: true
 }
 
-mongoose.connect('mongodb://localhost/streamdatabase', options);
+//mongoose.connect('mongodb://localhost/streamdatabase', options);
+mongoose.connect(process.env.ATLAS_URI, options);
 
 const db = mongoose.connection;
 
