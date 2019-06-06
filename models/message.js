@@ -1,4 +1,6 @@
 
+// model schema for messagedb
+// this schema also used by streaming service
 //default identifier for Machine platform
 const platform = "+19148195104"
 

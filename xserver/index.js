@@ -54,6 +54,7 @@ app.use(function(req, res, next){
   req.bag = io
   next()
 })
+
 app.get(`/news`, news)
 app.post(`/seed`, seed)
 app.post(`/test`, test)
