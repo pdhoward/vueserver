@@ -23,7 +23,7 @@ const msgSchema = new Schema({
 
 // middleware -----
 // set defaults
-eventSchema.pre('save', function(next) {
+msgSchema.pre('save', function(next) {
   this.MsgId = genId();
   this.OwnerId = genId()
   this.PlatformId = genId()
