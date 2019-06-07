@@ -4,6 +4,8 @@
 /////       seed mongodb database       ////
 ///////////////////////////////////////////
 const {LoremIpsum} =  require('lorem-ipsum')
+const moment =        require(`moment`)
+const uuidv4 =        require('uuid/v4');
 const Message =       require('../models/messagedb')
 const seeds =         require('../db/data/news.json')
 const imageDB =       require('../db/data/images.json')
