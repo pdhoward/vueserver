@@ -42,8 +42,8 @@ const seed = (router) => {
     
       // use the Message model to insert/save
       Message.remove({}, () => {
-        for (seedObj of seeds) {
-            x = x + 1
+        for (let n of seeds) {
+            let x = 1
       // insert some random context
             n.data.date = moment().format('MMMM Do YYYY, h:mm:ss a');
             let imageObj = imageDB[Math.floor(Math.random()*imageDB.length)]
@@ -60,7 +60,6 @@ const seed = (router) => {
             messageObj.Experiences = [...exp1]
             messageObj.Channels = [...chn1]    
 
-            let x = 0
             var newMessage = new Message(messageObj);
             newMessage.save();
         }
