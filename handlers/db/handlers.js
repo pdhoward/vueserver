@@ -23,8 +23,7 @@ module.exports = function () {
   function handleChange(document) {
 
     handleEvent(document)
-      .then(function (document) {
-        
+      .then(function (document) {        
         console.log(JSON.stringify(document))
       })
       .catch(err => console.log(`DB Handler error > ${err}`))
