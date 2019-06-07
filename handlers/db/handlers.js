@@ -5,18 +5,17 @@
 ////////////////////////////////////////////////////////
 
 const changeEmit =    require('../sockets/changeEmit')
-const getIO =         require('../../routes/expio')
+const getSocket =         require('../../utils/getSocket')
 
 function makeHandle() {
 
   function handleEvent(document) {
       return new Promise ((resolve, reject) => {        
-        resolve(documents)       
+        resolve(document)       
       })
   }
   return handleEvent
 }
-
 
 
 module.exports = function () {    
@@ -29,7 +28,8 @@ module.exports = function () {
       .then(function (document) {         
         if (document.operationType == 'insert'){
 
-            let io = getIO()
+          // retrieve the socket using utility
+            let io = getSocket()
             changeEmit(io, document)
             return
         }

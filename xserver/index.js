@@ -38,6 +38,10 @@ if (argv != 'no') {
   let sendMessage = require('../events/redis').publish
   sendMessage('monitor', JSON.stringify({'Body':'Machine is connected to Redis'}))
 }
+
+// store socket for later retrieval in the app
+let getSocket = require('../utils/getSocket')
+getSocket(io)
  //////////////////////////////////////////////////////
  ////////// Register and Config Routes ///////////////
  ////////////////////////////////////////////////////
@@ -45,19 +49,15 @@ if (argv != 'no') {
 const news =              express.Router()
 const seed =              express.Router()
 const test =              express.Router()
-const expio =             express.Router()
 
 require('../routes/news')(news)
 require('../routes/seed')(seed)
 require('../routes/test')(test)
-require('../routes/expio')(expio)
 
 app.use(function(req, res, next){
   req.bag = io 
   next()   
 })
-
-app.use(expio)
 
 app.get(`/news`, news)
 app.post(`/seed`, seed)
