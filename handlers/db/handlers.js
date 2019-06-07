@@ -3,19 +3,21 @@
 //////   Create customized handlers for every new  //////
 /////          streaming database events           /////
 ////////////////////////////////////////////////////////
-const {_, io} =       require('../events')
-const changeEmit =    require('../handlers/sockets/changeEmit')
+
+const changeEmit =    require('../sockets/changeEmit')
+const getIO =         require('../../routes/expio')
 
 function makeHandle() {
 
   function handleEvent(document) {
-      return new Promise ((resolve, reject) => {
-        console.log(`Entered DB Handle Event`)
-        resolve(document)
+      return new Promise ((resolve, reject) => {        
+        resolve(documents)       
       })
   }
   return handleEvent
 }
+
+
 
 module.exports = function () {    
   
@@ -24,8 +26,10 @@ module.exports = function () {
   function handleChange(document) {
 
     handleEvent(document)
-      .then(function (document) {
+      .then(function (document) {         
         if (document.operationType == 'insert'){
+
+            let io = getIO()
             changeEmit(io, document)
             return
         }
