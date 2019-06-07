@@ -37,10 +37,7 @@ const seed = (router) => {
     
     console.log(g("----- Seed Route------"))
     let time = 10000    
-    let testParms = req.body    
-    console.log(`Executing seed`)
-    console.log(req.body)
-    console.log(seeds) 
+    let testParms = req.body       
     
       // use the Message model to insert/save
       Message.remove({}, () => {
