@@ -37,11 +37,12 @@ const seed = (router) => {
     let time = 10000    
     let testParms = req.body    
     console.log(`Executing seed`)
-    console.log(req.body)    
+    console.log(req.body)
+    console.log(seeds) 
     
       // use the Message model to insert/save
       Message.remove({}, () => {
-        for (n of seeds) {
+        for (seedObj of seeds) {
             x = x + 1
       // insert some random context
             n.data.date = moment().format('MMMM Do YYYY, h:mm:ss a');
