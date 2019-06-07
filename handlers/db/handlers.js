@@ -11,7 +11,7 @@ function makeHandle() {
         console.log(`Entered DB Handle Event`)
         resolve(document)
       })
-  }  
+  }
   return handleEvent
 }
 
