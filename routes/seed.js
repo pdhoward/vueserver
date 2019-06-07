@@ -8,6 +8,7 @@ const moment =        require(`moment`)
 const uuidv4 =        require('uuid/v4');
 const Message =       require('../models/messagedb')
 const seeds =         require('../db/data/news.json')
+const testData =      require('../db/data/test.json')
 const imageDB =       require('../db/data/images.json')
 
 const { g, b, gr, r, y } =  require('../console')
@@ -62,7 +63,9 @@ const seed = (router) => {
             var newMessage = new Message(messageObj);
             newMessage.save();
             // experiment
-            Message.create({Content: [{message: "Hello world", price: 200}]})
+            Message.create({Experiences: [...exp1],
+                            Channels: [...chn1],
+                            Content: [testData[Math.floor(Math.random()*testData.length)]]})
         }
 
         
