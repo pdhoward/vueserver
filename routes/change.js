@@ -1,7 +1,7 @@
 'use strict';
 
 /////////////////////////////////////////////
-/////       seed mongodb database       ////
+/////       change mongodb database     ////
 ///////////////////////////////////////////
 const {LoremIpsum} =  require('lorem-ipsum')
 const moment =        require(`moment`)
@@ -40,7 +40,7 @@ const seed = (router) => {
     let testParms = req.body       
     
       // use the Message model to insert/save
-      Message.deleteMany({}, () => {
+      Message.remove({}, () => {
         for (let n of seeds) {
             let x = 1
       // insert some random context
@@ -61,12 +61,8 @@ const seed = (router) => {
 
             var newMessage = new Message(messageObj);
             newMessage.save();
-            // experiment
-            Message.create({Content: [{message: "Hello world", price: 200}]})
         }
-
-        
-      });
+      });    
 
     let data = {}
     data.success=true

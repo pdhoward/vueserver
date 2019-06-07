@@ -9,8 +9,11 @@ const { g, b, gr, r, y } =      require('../console');
 //////////////////////////////////////////////////////////////
 
 const register = (io) => {    
-  socketevents(io)  
-  dbevents()
+  socketevents(io)
+
+  // connect to db and register events
+  dbevents()  
+  
   // submit a no argument from cli to skip registering redis if poor internet service
   let argv = "yes"    
   if (process.argv[2]) argv = process.argv[2]  
