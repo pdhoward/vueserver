@@ -24,7 +24,7 @@ module.exports = function () {
 
     handleEvent(document)
       .then(function (document) {
-        // remove member from chatroom
+        
         console.log(JSON.stringify(document))
       })
       .catch(err => console.log(`DB Handler error > ${err}`))
