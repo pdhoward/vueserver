@@ -6,10 +6,10 @@
 
 function makeHandle() {
 
-  function handleEvent() {
+  function handleEvent(document) {
       return new Promise ((resolve, reject) => {
         console.log(`Entered DB Handle Event`)
-        resolve()
+        resolve(document)
       })
     
   }  
