@@ -3,6 +3,8 @@
 //////   Create customized handlers for every new  //////
 /////          streaming database events           /////
 ////////////////////////////////////////////////////////
+const {_, io} =       require('../events')
+const changeEmit =    require('../handlers/sockets/changeEmit')
 
 function makeHandle() {
 
@@ -15,7 +17,7 @@ function makeHandle() {
   return handleEvent
 }
 
-module.exports = function () {
+module.exports = function () {    
   
   const handleEvent = makeHandle()
 
@@ -24,8 +26,13 @@ module.exports = function () {
     handleEvent(document)
       .then(function (document) {
         if (document.operationType == 'insert'){
-            
-        }    
+            changeEmit(io, document)
+            return
+        }
+        if (document.operationType == 'delete') {
+            console.log(`Document deleted`)
+            return
+        }
         console.log(JSON.stringify(document))
       })
       .catch(err => console.log(`DB Handler error > ${err}`))
