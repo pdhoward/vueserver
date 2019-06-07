@@ -10,8 +10,7 @@ function makeHandle() {
       return new Promise ((resolve, reject) => {
         console.log(`Entered DB Handle Event`)
         resolve(document)
-      })
-    
+      })    
   }  
   return handleEvent
 }
