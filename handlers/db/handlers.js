@@ -37,7 +37,7 @@ module.exports = function () {
             console.log(`Document deleted`)
             return
         }
-        console.log(JSON.stringify(document))
+        //console.log(JSON.stringify(document))
       })
       .catch(err => console.log(`DB Handler error > ${err}`))
   }  
