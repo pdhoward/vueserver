@@ -10,6 +10,6 @@ module.exports = function(io, document){
   const ADD = JSON.stringify({
     type: `ADD`,
     entity: messageArray,
-  })
+  })  
   io.sockets.emit('broadcast', ADD)  
 }

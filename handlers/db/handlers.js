@@ -25,11 +25,11 @@ module.exports = function () {
   function handleChange(document) {
 
     handleEvent(document)
-      .then(function (document) {         
+      .then(async (document) => {         
         if (document.operationType == 'insert'){
 
           // retrieve the socket using utility
-            let io = getSocket()
+            let io = await getSocket()
             changeEmit(io, document)
             return
         }
