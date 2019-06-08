@@ -7,7 +7,6 @@ const {LoremIpsum} =  require('lorem-ipsum')
 const moment =        require(`moment`)
 const uuidv4 =        require('uuid/v4');
 const Message =       require('../models/messagedb')
-const seeds =         require('../db/data/news.json')
 const testData =      require('../db/data/test.json')
 const imageDB =       require('../db/data/images.json')
 
@@ -41,8 +40,8 @@ const seed = (router) => {
     let testParms = req.body       
     
       // use the Message model to insert/save
-      Message.deleteMany({}, () => {
-        for (let n of seeds) {
+     // Message.deleteMany({}, () => {
+        for (let n of testData) {
             let x = 1
       // insert some random context
             n.data.date = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -56,20 +55,23 @@ const seed = (router) => {
             messageObj.Content = []
             messageObj.Experiences = []
             messageObj.Channels = []
-            messageObj.Content.push(n.data)           
+            messageObj.Content.push(n)           
             messageObj.Experiences = [...exp1]
             messageObj.Channels = [...chn1]    
 
             var newMessage = new Message(messageObj);
+            // save document to the db
             newMessage.save();
-            // experiment
+            // experiment - create a new document on db from random docs
+            /*
             Message.create({Experiences: [...exp1],
                             Channels: [...chn1],
                             Content: [testData[Math.floor(Math.random()*testData.length)]]})
+            */
         }
 
         
-      });
+     // });   this is the closure for Message.deleteMany()
 
     let data = {}
     data.success=true

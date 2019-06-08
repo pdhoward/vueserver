@@ -1,0 +1,142 @@
+[
+  {
+    "component": {
+      "name": "Test Document 1",
+      "url": "http://localhost:8200/NewsPreviewFancy/NewsPreviewFancy.4a2211e5c84fcccd7b91.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 1",
+      "url": "https://images.unsplash.com/photo-1436891461396-6df41158de09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=150&q=80",
+      "content": "This is new Data",
+      "date": "Saturday, 13. April 2019",
+      "headline": "Doc 1",
+      "id": 2     
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 2",
+      "url": "http://localhost:8200/NewsPreviewSimple/NewsPreviewSimple.f0b9e3b963a9a0d79dea.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 2",
+      "url": "",
+      "content": "All New Data",
+      "date": "Friday, 12. April 2019",
+      "headline": "Doc 2",
+      "id": 1
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 4",
+      "url": "http://localhost:8200/NewsPreviewFancy/NewsPreviewFancy.4a2211e5c84fcccd7b91.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 4",
+      "url": "https://images.unsplash.com/photo-1436891461396-6df41158de09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=150&q=80",
+      "content": "This is new Data",
+      "date": "Saturday, 13. April 2019",
+      "headline": "Doc 4",
+      "id": 2     
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 3",
+      "url": "http://localhost:8200/NewsPreviewSimple/NewsPreviewSimple.f0b9e3b963a9a0d79dea.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 3",
+      "url": "",
+      "content": "All New Data",
+      "date": "Friday, 12. April 2019",
+      "headline": "Doc 3",
+      "id": 1
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 5",
+      "url": "http://localhost:8200/NewsPreviewFancy/NewsPreviewFancy.4a2211e5c84fcccd7b91.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 5",
+      "url": "https://images.unsplash.com/photo-1436891461396-6df41158de09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=150&q=80",
+      "content": "This is new Data",
+      "date": "Saturday, 13. April 2019",
+      "headline": "Doc 5",
+      "id": 2     
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 6",
+      "url": "http://localhost:8200/NewsPreviewSimple/NewsPreviewSimple.f0b9e3b963a9a0d79dea.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 6",
+      "url": "",
+      "content": "All New Data",
+      "date": "Friday, 12. April 2019",
+      "headline": "Doc 6",
+      "id": 1
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 7",
+      "url": "http://localhost:8200/NewsPreviewFancy/NewsPreviewFancy.4a2211e5c84fcccd7b91.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 7",
+      "url": "https://images.unsplash.com/photo-1436891461396-6df41158de09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=150&q=80",
+      "content": "This is new Data",
+      "date": "Saturday, 13. April 2019",
+      "headline": "Doc 7",
+      "id": 2     
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 8",
+      "url": "http://localhost:8200/NewsPreviewSimple/NewsPreviewSimple.f0b9e3b963a9a0d79dea.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 8",
+      "url": "",
+      "content": "All New Data",
+      "date": "Friday, 12. April 2019",
+      "headline": "Doc 8",
+      "id": 1
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 9",
+      "url": "http://localhost:8200/NewsPreviewFancy/NewsPreviewFancy.4a2211e5c84fcccd7b91.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 9",
+      "url": "https://images.unsplash.com/photo-1436891461396-6df41158de09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&h=150&q=80",
+      "content": "This is new Data",
+      "date": "Saturday, 13. April 2019",
+      "headline": "Doc 9",
+      "id": 2     
+    }
+  },
+  {
+    "component": {
+      "name": "Test Document 10",
+      "url": "http://localhost:8200/NewsPreviewSimple/NewsPreviewSimple.f0b9e3b963a9a0d79dea.umd.min.js"
+    },
+    "data": {
+      "name": "Test Document 10",
+      "url": "",
+      "content": "All New Data",
+      "date": "Friday, 12. April 2019",
+      "headline": "Doc 10",
+      "id": 1
+    }
+  }
+]

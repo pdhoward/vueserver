@@ -31,7 +31,7 @@ module.exports = function(io){
   let messageObj = Object.assign({}, message.obj) 
   messageObj.MsgId = xid 
   messageObj.Content = []
-  messageObj.Content.push(newsemit.data)    
+  messageObj.Content.push(newsemit)
   messageObj.OwnerId = uuidv4()
   messageObj.TemplateId = uuidv4()
   messageObj.Experiences = [...exp1]
