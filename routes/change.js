@@ -7,7 +7,7 @@ const {LoremIpsum} =  require('lorem-ipsum')
 const moment =        require(`moment`)
 const uuidv4 =        require('uuid/v4');
 const Message =       require('../models/messagedb')
-const seeds =         require('../db/data/news.json')
+const seeds =         require('../db/data/test.json')
 const imageDB =       require('../db/data/images.json')
 
 const { g, b, gr, r, y } =  require('../console')
@@ -55,7 +55,7 @@ const seed = (router) => {
             messageObj.Content = []
             messageObj.Experiences = []
             messageObj.Channels = []
-            messageObj.Content.push(n.data)           
+            messageObj.Content.push(n)           
             messageObj.Experiences = [...exp1]
             messageObj.Channels = [...chn1]    
 
