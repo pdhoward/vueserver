@@ -1,7 +1,13 @@
 
 
 // dynamic assignment of a user channel and emitting info only to that
-// client
+// client using namespace
+//Socket.IO allows you to “namespace” your sockets, which essentially 
+// means assigning different endpoints or paths.
+
+// This is a useful feature to minimize the number of resources (TCP connections) 
+// and at the same time separate concerns within your application 
+// by introducing separation between communication channels.
 
 // server side - note this uses firebase ... could be jwt
 const debugSocket = debug('debug')('myAppName:socket')
