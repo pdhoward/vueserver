@@ -14,7 +14,7 @@
     "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^8.3.0",
     "express-session": "^1.15.6",
     "mongoose": "^5.4.20",
     "monk": "^6.0.6",
